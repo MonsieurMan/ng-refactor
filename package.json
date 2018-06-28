@@ -5,7 +5,7 @@
   "repository": "https://gitlab.com/MonsieurMan/ng-refactor.git",
   "author": "MrMan",
   "license": "MIT",
-  "publisher": "MrMan",
+  "publisher": "ng-refactor",
   "engines": {
     "vscode": "^1.22.0"
   },
