@@ -16,7 +16,7 @@
     "onCommand:ng-refactor.toggleInlineHTML",
     "onLanguage:typescript"
   ],
-  "icon": "./ng-refactor.png",
+  "icon": "ng-refactor.png",
   "main": "./out/extension",
   "contributes": {
     "commands": [

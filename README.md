@@ -1,5 +1,3 @@
-<img src="ng-refactor.png" align="right" />  
-
 # NG Refactor  
 > Bring power to your angular experience.  
 
