@@ -47,7 +47,7 @@ export class ToggleInlineHTMLActionProvider implements CodeActionProvider {
             return;
         }
         const line = document.lineAt(range.start.line);
-        if (line.text.includes('template: ') || line.text.includes('@Component({') || line.text.includes('templateUrl: ')) {
+        if (line.text.includes('template: ') || line.text.includes('templateUrl: ')) {
             return [{
                 command: Commands.ToggleInlineHTML,
                 title: 'Toggle inline html',

@@ -1,7 +1,7 @@
 {
   "name": "ng-refactor",
-  "version": "0.0.1",
-  "description": "Refactorings for angular in vscode",
+  "version": "0.0.2",
+  "description": "Simple yet useful refactorings for angular.",
   "repository": "https://gitlab.com/MonsieurMan/ng-refactor.git",
   "author": "MrMan",
   "license": "MIT",
@@ -16,6 +16,7 @@
     "onCommand:ng-refactor.toggleInlineHTML",
     "onLanguage:typescript"
   ],
+  "icon": "./ng-refactor.png",
   "main": "./out/extension",
   "contributes": {
     "commands": [
@@ -26,6 +27,7 @@
       }
     ]
   },
+  "readme": "./README.md",
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
     "watch": "tsc -watch -p ./",

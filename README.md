@@ -1,10 +1,22 @@
-# NG-Refactor
-This is a simple extension that aims at bringing simple yet useful refatorings for angular.
+<img src="ng-refactor.png" align="right" />  
 
-## TODO
-- [x] Toggle inline component HTML
-    - [x] Command when in typescript file
-    - [x] Code Action Provider
-    - [ ] Command when in html file
-    - [ ] Right click on explorer (ts or html file) ?
-- [ ] Toggle inline css *(need to fail if using scss features or array of styles)*
+# NG Refactor  
+> Bring power to your angular experience.  
+
+NG Refactor aims to provide useful refactorings for angular in vscode.
+
+## Features
+- **Toggle inline HTML**  
+Allow to toggle between inline template and external template file.  
+    > Create and insert GIF  
+
+- **~~Toggle inline css~~ *(todo)***  
+Allow to toggle between inline styles and external style sheet.  
+    > Create and insert GIF  
+
+- **~~Ng generate explorer integrations~~ *(todo)***  
+Allow you to call `ng generate` via the explorer.
+
+## Contributing  
+Don't hesitate to file in an issue if you found a bug or want to see a feature implemented.  
+Pull requests are welcome too !
