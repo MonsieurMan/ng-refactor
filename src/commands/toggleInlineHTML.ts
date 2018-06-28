@@ -1,7 +1,7 @@
 import { window, CodeActionProvider, TextDocument, Range, CodeActionContext, CancellationToken, Command } from 'vscode';
 import { writeFileSync, unlinkSync, readFileSync } from 'fs';
 
-import { Commands } from './commands';
+import { Commands } from '../commands';
 
 export function toggleInlineHTML() {
     if (window.activeTextEditor) {

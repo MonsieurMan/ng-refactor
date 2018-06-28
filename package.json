@@ -18,6 +18,7 @@
   ],
   "activationEvents": [
     "onCommand:ng-refactor.toggleInlineHTML",
+    "onCommand:ng-refactor.toggleInlineCSS",
     "onLanguage:typescript"
   ],
   "icon": "ng-refactor.png",
@@ -28,6 +29,11 @@
         "command": "ng-refactor.toggleInlineHTML",
         "category": "refactor",
         "title": "ng-refactor: Toggle inline HTML"
+      },
+      {
+        "command": "ng-refactor.toggleInlineCSS",
+        "category": "refactor",
+        "title": "ng-refactor: Toggle inline CSS"
       }
     ]
   },
