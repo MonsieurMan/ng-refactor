@@ -8,4 +8,4 @@ test:node:8:
   script:
     - npm install -g codecov
     - npm run pretest
-    - npm run test && npm run codecov
+    - npm run test && codecov
