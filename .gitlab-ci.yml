@@ -6,8 +6,6 @@ before_script:
 test:node:8:
   image: node:8
   script:
+    - npm install -g codecov
     - npm run pretest
-    - npm run test
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash) -t 25fa4ade-6a89-4003-a9c8-8fc930512ced
+    - npm run test && npm run codecov
