@@ -13,7 +13,7 @@
   "author": "MrMan",
   "license": "MIT",
   "publisher": "ng-refactor",
-  "icon": "./assets/sng-refactor.png",
+  "icon": "assets/ng-refactor.png",
   "main": "./out/extension",
   "readme": "./README.md",
   "engines": {
