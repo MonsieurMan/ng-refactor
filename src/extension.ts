@@ -1,24 +1,24 @@
-import { commands, ExtensionContext, languages } from 'vscode';
+import { commands, ExtensionContext, languages, window } from 'vscode';
 
 import { COMPONENT_TYPESCRIPT } from './selectors';
 import { Commands } from './commands';
 
-import { toggleInlineHTML } from './commands/toggleInlineHTML';
-import { toggleInlineCSS } from './commands/toggleInlineCSS';
-
 import { ToggleInlineHTMLActionProvider } from './action-providers/toggleInlineHTMLActionProvider';
 import { ToggleInlineCSSActionProvider } from './action-providers/toggleInlineCSSActionProvider';
+
+import { toggleInlineHTMLCommand } from './commands/toggleInlineHTMLCommand';
+import { toggleInlineCssCommand } from './commands/toggleInlineCSSComand';
 
 export function activate(context: ExtensionContext) {
     console.log('NG-Refactor extension successfuly activated.');
 
-    const toggleInlineHTMLCommand = commands.registerCommand(
+    const toggleInlineHTMLCommandDisposable = commands.registerCommand(
         Commands.ToggleInlineHTML, 
-        toggleInlineHTML
+        () => toggleInlineHTMLCommand(window.activeTextEditor)
     );
-    const toggleInlineCssCommand = commands.registerCommand(
+    const toggleInlineCssCommandDisposable = commands.registerCommand(
         Commands.ToggleInlineCSS, 
-        toggleInlineCSS,
+        () => toggleInlineCssCommand(window.activeTextEditor),
     );
     
     const toggleInlineHTMLCodeActionProvider = languages.registerCodeActionsProvider(
@@ -31,8 +31,8 @@ export function activate(context: ExtensionContext) {
     );
 
     context.subscriptions.push(
-        toggleInlineHTMLCommand,
-        toggleInlineCssCommand,
+        toggleInlineHTMLCommandDisposable,
+        toggleInlineCssCommandDisposable,
         toggleInlineHTMLCodeActionProvider,
         toggleInlineCssCodeActionProvider,
     );

@@ -35,13 +35,13 @@
     "commands": [
       {
         "command": "ng-refactor.toggleInlineHTML",
-        "category": "refactor",
-        "title": "ng-refactor: Toggle inline HTML"
+        "category": "ng-refactor",
+        "title": "Toggle inline HTML"
       },
       {
         "command": "ng-refactor.toggleInlineCSS",
-        "category": "refactor",
-        "title": "ng-refactor: Toggle inline CSS"
+        "category": "ng-refactor",
+        "title": "Toggle inline CSS"
       }
     ]
   },
