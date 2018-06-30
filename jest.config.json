@@ -1,0 +1,18 @@
+{
+    "globals": {
+        "ts-jest": {
+            "tsConfigFile": "tsconfig.spec.json"
+        }
+    },
+    "transform": {
+        "^.+\\.ts$": "ts-jest"
+    },
+    "collectCoverage": true,
+    "testRegex": "(/test/.*|(\\.|/)(spec))\\.spec.ts$",
+    "moduleFileExtensions": [
+        "ts",
+        "js",
+        "json",
+        "node"
+    ]
+}

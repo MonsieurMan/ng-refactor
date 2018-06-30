@@ -9,7 +9,7 @@
             "options": "single"
         },
         "no-console": false,
-        "object-literal-sort-keys": false,
+        "object-literal-sort-keys": false
     },
     "rulesDirectory": []
 }
