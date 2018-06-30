@@ -47,13 +47,14 @@
   },
   "scripts": {
     "start": "tsc -watch -p ./",
-    "pretest": "yarn lint",
+    "pretest": "npm run lint",
     "test": "jest --config jest.config.json",
-    "vscode:prepublish": "yarn compile && yarn generate-toc",
+    "vscode:prepublish": "npm run compile && npm run generate-toc",
     "compile": "tsc -p ./",
     "generate-toc": "markdown-toc README.md -i",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "lint": "tslint -c tslint.json './src/**/*.ts'"
+    "lint": "tslint -c tslint.json './src/**/*.ts'",
+    "report-coverage": "coveralls < ./coverage/lcov.info"
   },
   "devDependencies": {
     "@types/jest": "^23.1.3",

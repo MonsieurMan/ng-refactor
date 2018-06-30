@@ -6,6 +6,6 @@ before_script:
 test:node:8:
   image: node:8
   script:
-    - npm install -g codecov
+    - npm run pretest
     - npm run test
-    - npm run codecov
+    - npm run report-coverage
