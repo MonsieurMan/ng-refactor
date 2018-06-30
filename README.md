@@ -63,7 +63,8 @@ Don't hesitate to file an issue if you found a bug or want to see a feature impl
 Pull requests are welcome too !
 
 ### Hacking on NG Refactor
-Run the following command in a terminal:
+NG refactor is developped in typescript.  
+Run the following command in a terminal to install and launch:
 ```shell
 git clone https://gitlab.com/MonsieurMan/ng-refactor.git
 cd ng-refactor
