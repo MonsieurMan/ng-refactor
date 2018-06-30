@@ -1,4 +1,4 @@
 export enum Commands {
     ToggleInlineHTML = 'ng-refactor.toggleInlineHTML',
-    ToggleInlineCSS = 'ng-refactor.toggleInlineCSS'
+    ToggleInlineCSS = 'ng-refactor.toggleInlineCSS',
 }

@@ -3,8 +3,8 @@
 	"tasks": [
 		{
 			"type": "npm",
-			"script": "watch",
-			"problemMatcher": "$tsc-watch",
+			"script": "start",
+			"problemMatcher": ["$tsc-watch", "$tslint5"],
 			"isBackground": true,
 			"presentation": {
 				"reveal": "never"
