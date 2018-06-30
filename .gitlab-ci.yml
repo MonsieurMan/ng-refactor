@@ -1,0 +1,11 @@
+image: node:8
+
+before_script:
+ - npm install
+
+test:node:8
+  image: node:8
+  script:
+    - npm install -g codecov
+    - npm run test
+    - npm run codecov
