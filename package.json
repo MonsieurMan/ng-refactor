@@ -46,13 +46,16 @@
     ]
   },
   "scripts": {
-    "pretest": "tslint -p tslint.json",
-    "vscode:prepublish": "tsc -p ./",
     "start": "tsc -watch -p ./",
+    "pretest": "tslint -p tslint.json",
+    "vscode:prepublish": "yarn compile && yarn generate-toc",
+    "compile": "tsc -p ./",
+    "generate-toc": "markdown-toc README.md -i",
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "devDependencies": {
     "@types/node": "^10.5.0",
+    "markdown-toc": "^1.2.0",
     "tslint": "^5.10.0",
     "typescript": "^2.1.4",
     "vscode": "^1.1.18"
