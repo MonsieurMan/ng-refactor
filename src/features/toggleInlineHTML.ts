@@ -2,6 +2,7 @@ import { TextDocument } from 'vscode';
 
 import { readFileSync, unlinkSync, writeFileSync } from 'fs';
 import { extractFileName } from '../utils/url';
+import { unindent } from '../utils/string';
 
 const templateUrlRegExp = /templateUrl: '.\/(.*)'/gm;
 const templateRegExp = /template: `([\s\S]*)`/;
@@ -36,8 +37,7 @@ export class InlineHtmlToggler {
 
     private extractTemplateFile(componentFileContent: string, componentFilePath: string) {
         const templateRegExpMatch = templateRegExp.exec(componentFileContent);
-        const templateFileContent = templateRegExpMatch[1]
-            .replace(/(\r?\n|\r)(\t\t|\t\t\t\t|        )/gm, '\r\n').trim(); // remove indentation
+        const templateFileContent = unindent(templateRegExpMatch[1]).trim(); // remove indentation
         const templateFilePath = componentFilePath.replace(/.ts$/, '.html');
         const relativeTemplateFilePath = './' + extractFileName(templateFilePath);
         const newComponentContent = componentFileContent

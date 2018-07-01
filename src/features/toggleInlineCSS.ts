@@ -5,7 +5,7 @@ import { isArray } from 'util';
 
 import { tryRead } from '../utils/fs';
 import { wholeMatch } from '../utils/range';
-import { indentWithTwoTabs } from '../utils/string';
+import { indentWithTwoTabs, unindent } from '../utils/string';
 import { extractFileName } from '../utils/url';
 
 export class InlineCssToggler {
@@ -48,15 +48,13 @@ export class InlineCssToggler {
     }
 
     private extractStyleSheet() {
-        const styleMatch = /styles: \[['|"|`]([\s\S]*)['|"|`]\]/gm.exec(this.document.getText());
-        const styles = styleMatch[1].split('`, `');
-        const styleSheetContent = styles
-            .reduce((acc, cur) => acc.trim() + '\n' + cur.trim()) // Concatenante all styles
-            .replace(/(\r?\n|\r)(\t\t|\t\t\t\t|        )/gm, '\r\n'); // Remove tabs at the start of each line
-        const styleSheetPath = this.document.fileName.replace(/.ts$/, '.scss');
-        // Change extension name TODO: get from angular cli
-        const relativeStyleSheetPath = './' + extractFileName(styleSheetPath);
         const match = /styles: \[['|"|`]([\s\S]*)['|"|`]\]/gm.exec(this.document.getText());
+        const styles = match[1].split('`, `');
+        const styleSheetPath = this.document.fileName.replace(/.ts$/, '.scss');
+        const relativeStyleSheetPath = './' + extractFileName(styleSheetPath);
+        let styleSheetContent = styles
+            .reduce((acc, cur) => acc.trim() + '\n' + cur.trim()); // Concatenante all styles;
+        styleSheetContent = unindent(styleSheetContent);
 
         const newContent = `styleUrls: ['${relativeStyleSheetPath}']`;
         this.replaceMatchWith(match, newContent);
