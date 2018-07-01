@@ -8,8 +8,12 @@
         "quotemark": {
             "options": "single"
         },
+        "interface-name": false,
         "no-console": false,
-        "object-literal-sort-keys": false
+        "object-literal-sort-keys": false,
+        "max-method-function-line-count": [true, 15, "include-nested-functions"]
     },
-    "rulesDirectory": []
+    "rulesDirectory": [
+        "./rules"
+    ]
 }
