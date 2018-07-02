@@ -1,2 +1,0 @@
-{"/home/mrman/Desktop/Projects/ng-refactor/src/utils/url.ts": {"path":"/home/mrman/Desktop/Projects/ng-refactor/src/utils/url.ts","statementMap":{"0":{"start":{"line":3,"column":4},"end":{"line":3,"column":42}},"1":{"start":{"line":2,"column":0},"end":{"line":4,"column":1}}},"fnMap":{"0":{"name":"extractFileName","decl":{"start":{"line":2,"column":0},"end":{"line":2,"column":31}},"loc":{"start":{"line":2,"column":43},"end":{"line":4,"column":1}}}},"branchMap":{},"s":{"0":2,"1":1},"f":{"0":2},"b":{}}
-}
