@@ -1,11 +1,9 @@
-import { TextDocument } from 'vscode';
+import { TextDocument, workspace, WorkspaceEdit } from 'vscode';
 
 import { readFileSync, unlinkSync, writeFileSync } from 'fs';
+import { wholeMatch } from '../utils/range';
+import { indentWithTwoTabs, unindent } from '../utils/string';
 import { extractFileName } from '../utils/url';
-import { unindent } from '../utils/string';
-
-const templateUrlRegExp = /templateUrl: '.\/(.*)'/gm;
-const templateRegExp = /template: `([\s\S]*)`/;
 
 export class InlineHtmlToggler {
     constructor(
@@ -13,37 +11,39 @@ export class InlineHtmlToggler {
     ) { }
 
     public execute() {
-        const componentFilePath = this.document.fileName;
-        const componentFileContent = readFileSync(componentFilePath).toString();
-        const urlRegexpMatch = templateUrlRegExp.exec(componentFileContent);
+        const match = /templateUrl: '.\/(.*)'/gm.exec(this.document.getText());
 
-        if (urlRegexpMatch !== null) {
-            this.inlineTemplateFile(componentFilePath, componentFileContent);
+        if (match !== null) {
+            this.inlineTemplateFile();
         } else {
-            this.extractTemplateFile(componentFileContent, componentFilePath);
+            this.extractTemplateFile();
         }
     }
 
-    private inlineTemplateFile(componentFilePath: string, componentFileContent: string) {
-        const templateFilePath = componentFilePath.replace(/.ts$/, '.html');
-        const templateFileContent = readFileSync(templateFilePath)
-            .toString().trim().replace(/\r?\n|\r/gm, '\r\n\t\t'); // Add two tabs
-        const newComponentContent = componentFileContent
-            .replace(templateUrlRegExp, `template: \`\n\t\t${templateFileContent}\n\t\``);
+    private inlineTemplateFile() {
+        const templateFilePath = this.document.fileName.replace(/.ts$/, '.html');
+        const templateFileContent = indentWithTwoTabs(
+            readFileSync(templateFilePath).toString().trim(),
+        );
+        const match = /templateUrl: '.\/(.*)'/gm.exec(this.document.getText());
 
-        writeFileSync(componentFilePath, newComponentContent);
+        this.replaceMatchWith(match, `template: \`\n\t\t\t${templateFileContent}\n\t\t\``);
         unlinkSync(templateFilePath);
     }
 
-    private extractTemplateFile(componentFileContent: string, componentFilePath: string) {
-        const templateRegExpMatch = templateRegExp.exec(componentFileContent);
-        const templateFileContent = unindent(templateRegExpMatch[1]).trim(); // remove indentation
-        const templateFilePath = componentFilePath.replace(/.ts$/, '.html');
+    private extractTemplateFile() {
+        const match = /template: `([\s\S]*?)`/.exec(this.document.getText());
+        const templateFileContent = unindent(match[1]).trim(); // remove indentation
+        const templateFilePath = this.document.fileName.replace(/.ts$/, '.html');
         const relativeTemplateFilePath = './' + extractFileName(templateFilePath);
-        const newComponentContent = componentFileContent
-            .replace(templateRegExp, `templateUrl: '${relativeTemplateFilePath}'`);
 
         writeFileSync(templateFilePath, templateFileContent);
-        writeFileSync(componentFilePath, newComponentContent);
+        this.replaceMatchWith(match, `templateUrl: '${relativeTemplateFilePath}'`);
+    }
+
+    private replaceMatchWith(match: RegExpExecArray, newContent: string) {
+        const edit = new WorkspaceEdit();
+        edit.replace(this.document.uri, wholeMatch(match, this.document), newContent);
+        workspace.applyEdit(edit);
     }
 }

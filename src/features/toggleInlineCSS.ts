@@ -43,7 +43,7 @@ export class InlineCssToggler {
         const templateFileContent = indentWithTwoTabs(templateFile.trim());
         const match = /styleUrls: (\[.*\])/gm.exec(this.document.getText());
 
-        this.replaceMatchWith(match, `styles: [\`\n\t\t${templateFileContent.trim()}\n\t\`]`);
+        this.replaceMatchWith(match, `styles: [\`\n\t\t\t${templateFileContent.trim()}\n\t\t\`]`);
         unlinkSync(templateFilePath);
     }
 
