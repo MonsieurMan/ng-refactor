@@ -8,6 +8,9 @@
         "^.+\\.ts$": "ts-jest"
     },
     "collectCoverage": true,
+    "collectCoverageFrom": [
+        "src/**/*.ts"
+    ],
     "testRegex": "(/test/.*|(\\.|/)(spec))\\.spec.ts$",
     "moduleFileExtensions": [
         "ts",
