@@ -1,5 +1,6 @@
 <img src="https://ibb.co/evkKnJ" align="right"></img>
-
+[![Build Status](https://travis-ci.org/MonsieurMan/ng-refactor.svg?branch=master)](https://travis-ci.org/MonsieurMan/ng-refactor)
+[![Coverage Status](https://coveralls.io/repos/github/MonsieurMan/ng-refactor/badge.svg?branch=master)](https://coveralls.io/github/MonsieurMan/ng-refactor?branch=master)
 # NG Refactor  
 > Bring joy to your angular vscode experience.  
 
