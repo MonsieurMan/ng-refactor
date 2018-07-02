@@ -5,6 +5,7 @@ src/
 
 jest.config.json
 tsconfig.json
+tsconfig.spec.json
 .travis.yml
 .gitignore
 tslint.json
