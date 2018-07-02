@@ -59,14 +59,14 @@ Allow to create a new component from the current html selection.
 Allow you to call `ng generate` via the explorer.
 
 ## Contributing  
-Don't hesitate to file an issue if you found a bug or want to see a feature implemented !  
-Pull requests are welcome too !
+Don't hesitate to file an [issue](https://github.com/MonsieurMan/ng-refactor/issues/new) if you found a bug or want to see a feature implemented !  
+[Pull requests](https://github.com/MonsieurMan/ng-refactor/compare) are welcome too !
 
 ### Hacking on NG Refactor
-NG refactor is developped in typescript.  
+NG refactor is developped in typescript and uses jest for testing, it has currently no dependencies.  
 Run the following command in a terminal to install and launch:
 ```shell
-git clone https://gitlab.com/MonsieurMan/ng-refactor.git
+git clone https://github.com/MonsieurMan/ng-refactor.git
 cd ng-refactor
 yarn | npm i
 # Launch typescript compiler in watch mode

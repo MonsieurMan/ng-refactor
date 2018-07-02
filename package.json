@@ -4,11 +4,11 @@
   "description": "Essential refactorings for Angular.",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/MonsieurMan/ng-refactor.git"
+    "url": "https://github.com/MonsieurMan/ng-refactor.git"
   },
   "bugs": {
     "email": "ange.g.picard@gmail.com",
-    "url": "https://gitlab.com/MonsieurMan/ng-refactor/issues"
+    "url": "https://github.com/MonsieurMan/ng-refactor/issues"
   },
   "author": "MrMan",
   "license": "MIT",
