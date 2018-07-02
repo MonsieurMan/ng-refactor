@@ -1,0 +1,10 @@
+test/
+.vscode/
+rules/
+src/
+
+jest.config.json
+tsconfig.json
+.travis.yml
+.gitignore
+tslint.json

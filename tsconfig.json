@@ -11,7 +11,7 @@
 	},
 	"exclude": [
 		"node_modules",
-		"test",
-		"rules"
+		"rules",
+		"src/test"
 	]
 }

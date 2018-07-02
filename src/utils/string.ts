@@ -1,3 +1,5 @@
+// TODO: find package for string manipulation and formating
+
 export function indentWithTwoTabs(str: string): string {
     return str.replace(/\r?\n|\r/gm, '\r\n      ');
 }

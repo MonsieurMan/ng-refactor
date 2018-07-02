@@ -1,4 +1,4 @@
-import { extractFileName } from '../../src/utils/url';
+import { extractFileName } from '../../utils/url';
 
 describe('Extract file name', () => {
     it('Extract from regular file path', () => {
