@@ -1,6 +1,6 @@
 {
   "name": "ng-refactor",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "Essential refactorings for Angular.",
   "repository": {
     "type": "git",
